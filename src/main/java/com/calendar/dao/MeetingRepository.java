@@ -11,4 +11,7 @@ public interface MeetingRepository extends JpaRepository<MeetingEntity, Long> {
 
     @Query(value = "select u from MeetingEntity u where lower(u.name) = lower(:name)")
     List<MeetingEntity> findByName(@Param("name") String name);
+
+    @Query(value = "select u from MeetingEntity u where u.date = :date")
+    List<MeetingEntity> findByDate(@Param("date") String date);
 }
